@@ -56,9 +56,14 @@ This software project is NOT affiliated with EFF, but if you find this utility
 useful, please donate to EFF at:
 https://www.eff.org/donate/
 
-If you find bugs or would like to contribute code and/or give feedback to this
+If you find bugs or would like to get or contribute to the source code of this
 software project, please visit:
 https://github.com/glvnst/snakeeyes
+
+This program comes with ABSOLUTELY NO WARRANTY; it is distributed under the
+terms of the GNU Affero General Public License 3.0. Visit the following URL for
+more information:
+https://www.gnu.org/licenses/agpl-3.0.html/
 
 Available Word Lists:
 
