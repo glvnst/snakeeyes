@@ -1,0 +1,40 @@
+before:
+  hooks:
+    - go mod tidy
+builds:
+- env:
+  - CGO_ENABLED=0
+  goos:
+    - darwin
+    - linux
+    - windows
+    - freebsd
+    - netbsd
+    - openbsd
+    - dragonfly
+  goarch:
+    - amd64
+    - arm
+    - arm64
+  goarm:
+    - 7
+  ignore:
+    - goos: darwin
+      goarch: 386
+archives:
+- format_overrides:
+    - goos: windows
+      format: zip
+  files:
+    - README.md
+    - COPYING
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Env.VERSION }}"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
