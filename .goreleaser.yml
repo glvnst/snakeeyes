@@ -8,10 +8,10 @@ builds:
     - darwin
     - linux
     - windows
+    - dragonfly
     - freebsd
     - netbsd
     - openbsd
-    - dragonfly
   goarch:
     - amd64
     - arm
@@ -21,6 +21,8 @@ builds:
   ignore:
     - goos: darwin
       goarch: 386
+    - goos: freebsd
+      goarch: arm64
 archives:
 - format_overrides:
     - goos: windows
