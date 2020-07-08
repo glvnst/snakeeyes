@@ -11,7 +11,15 @@ import (
 
 //go:generate go run helpers/mkwordlists.go
 
-const helpText = `usage: %s [-h|--help] [-words n] [-phrases n] [-list {eff,memorable,touchscreen,got,potter,trek,wars}]
+// filled at build time with ldflags by GoReleaser (part of build action)
+var (
+	product = "snakeeyes"
+	version = "DEV"
+	commit  = "No commit ID recorded."
+	date    = "No build date recorded."
+)
+
+const helpText = `usage: %s [ [-h|--help] | [-version] | [-words n] [-phrases n] [-list {eff,memorable,touchscreen,got,potter,trek,wars}] ]
 
 This command-line utility generates random passphrases using the Electronic
 Frontier Foundation's passphrase wordlists. For more info visit these articles:
@@ -90,12 +98,17 @@ func usage() {
 
 func main() {
 	var (
-		wordCount   = flag.Int("words", 6, "the number of words to include in each generated passphrase")
-		phraseCount = flag.Int("phrases", 3, "the number of passphrases to generate")
-		listName    = flag.String("list", "eff", "the wordlist to choose words from")
+		wordCount     = flag.Int("words", 6, "the number of words to include in each generated passphrase")
+		phraseCount   = flag.Int("phrases", 3, "the number of passphrases to generate")
+		listName      = flag.String("list", "eff", "the wordlist to choose words from")
+		reportVersion = flag.Bool("version", false, "report version number and exit")
 	)
 	flag.Usage = usage
 	flag.Parse()
+
+	if *reportVersion {
+		die("%s %s\n %s\n %s\n", product, version, commit, date)
+	}
 
 	// parsing
 	wordList, ok := WordLists[*listName]
