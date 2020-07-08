@@ -16,6 +16,8 @@ Be aware that using software to generate passphrases may be less secure against 
 * It would be nice to be able to print entropy information about the lists as loaded but I haven't really looked into those calculations.
 * It would also be nice to be able to specify a target total character length for passphrases but I think I need to research the safest way to accomplish that.
 * Experimenting with go generate <https://blog.golang.org/generate> for loading the word lists. This seems like a fine guide on that subject <https://blog.carlmjohnson.net/post/2016-11-27-how-to-use-go-generate/>
+* Enable some kind of auto update mechanism, perhaps based on TUF. What is restic doing about this?
+* Document the commands for reproducing a binary from a commit, start here <https://blog.filippo.io/reproducing-go-binaries-byte-by-byte/>
 
 ## Example
 
