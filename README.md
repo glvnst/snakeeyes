@@ -2,23 +2,48 @@
 
 This command-line utility generates random passphrases using the [EFF's passphrase wordlists](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases).
 
+* <https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases>
 * <https://www.eff.org/deeplinks/2018/08/dragon-con-diceware>
 * <https://www.eff.org/dice>
-* <https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases>
+* <https://ssd.eff.org/en/module/animated-overview-how-make-super-secure-password-using-dice>
+
+Be aware that using software to generate passphrases may be less secure against some forms of attack than using fair dice and paper wordlists so if you see your IT department playing with dice you should buy them lunch.
 
 ## Notes / Todo / Status / Turtles
 
-* Currently compiles / runs.
-* Need to embed a version number and such.
-* Need to write some tests.
-* Would be nice to be able to print entropy information about the lists as loaded but I haven't really looked into those calculations.
-* Using the <https://godoc.org/crypto/rand> PRNG
+* Currently compiles / runs using the <https://godoc.org/crypto/rand> CS-PRNG.
+* I need to write some tests.
+* It would be nice to be able to print entropy information about the lists as loaded but I haven't really looked into those calculations.
+* It would also be nice to be able to specify a target total character length for passphrases but I think I need to research the safest way to accomplish that.
 * Experimenting with go generate <https://blog.golang.org/generate> for loading the word lists. This seems like a fine guide on that subject <https://blog.carlmjohnson.net/post/2016-11-27-how-to-use-go-generate/>
 
-## Usage Text
+## Example
+
+When invoked without arguments, snakeeyes prints three passphrases consisting of six words each.
 
 ```
-usage: snakeeyes [-h|--help] [-words n] [-phrases n] [-list {eff,memorable,touchscreen,got,potter,trek,wars}]
+$ snakeeyes
+jailbreak stump omega giveaway consoling reclaim
+exploring sweep actress unfrozen vertebrae chain
+try qualify twig stubbly darwinism elevation
+```
+
+You can specify that you want words from a different word list, such as EFF's first short list. In this example we're also specifying that we want 8 words per passphrase:
+
+```
+$ snakeeyes -list memorable -words 8
+bribe fiber doll slum keg stump dense fruit
+donor emu date cried cheer thong gem cash
+trick graph cane stage fable array mocha blush
+```
+
+
+## Help Text
+
+Invoking snakeeyes with the `-h` or `--help` arguments will produce the following output:
+
+```
+usage: snakeeyes [ [-h|--help] | [-version] | [-words n] [-phrases n] [-list {eff,memorable,touchscreen,got,potter,trek,wars}] ]
 
 This command-line utility generates random passphrases using the Electronic
 Frontier Foundation's passphrase wordlists. For more info visit these articles:
@@ -66,6 +91,8 @@ Command line options:
     	the wordlist to choose words from (default "eff")
   -phrases int
     	the number of passphrases to generate (default 3)
+  -version
+    	report version number and exit
   -words int
     	the number of words to include in each generated passphrase (default 6)
 ```
