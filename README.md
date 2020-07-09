@@ -12,12 +12,17 @@ Be aware that using software to generate passphrases may be less secure against 
 ## Notes / Todo / Status / Turtles
 
 * Currently compiles / runs using the <https://godoc.org/crypto/rand> CS-PRNG.
-* I need to write some tests.
+* I need to improve the tests.
 * It would be nice to be able to print entropy information about the lists as loaded but I haven't really looked into those calculations.
 * It would also be nice to be able to specify a target total character length for passphrases but I think I need to research the safest way to accomplish that.
 * Experimenting with go generate <https://blog.golang.org/generate> for loading the word lists. This seems like a fine guide on that subject <https://blog.carlmjohnson.net/post/2016-11-27-how-to-use-go-generate/>
-* Enable some kind of auto update mechanism, perhaps based on TUF. What is restic doing about this?
-* Document the commands for reproducing a binary from a commit, start here <https://blog.filippo.io/reproducing-go-binaries-byte-by-byte/>
+* Enable some kind of auto update mechanism
+	* Using [The Update Framework](https://theupdateframework.com/) seems like a good idea
+		* [flynn's go-tuf](https://github.com/flynn/go-tuf) and [kolide's updater](https://github.com/kolide/updater) are golang implementations
+		* I have [some](https://github.com/theupdateframework/notary/issues/1566) [concerns](https://github.com/theupdateframework/notary/issues/1564) about the status of the TUF project / notary
+		* I'm not sure if I have to run my own notary instance or if I can use a public one hosted somewhere -- need to look into it
+	* Restic rolled their own update system based on github API calls <https://github.com/restic/restic/tree/master/internal/selfupdate>.
+* Document the exact commands for verifying that a binary matches a given commit to this repo. Good starting place: <https://blog.filippo.io/reproducing-go-binaries-byte-by-byte/>
 
 ## Example
 

@@ -36,7 +36,7 @@ var (
 const helpText = `usage: %s [ [-h|--help] | [-version] | [-words n] [-phrases n] [-list {eff,memorable,touchscreen,got,potter,trek,wars}] ]
 
 This command-line utility generates random passphrases using the Electronic
-Frontier Foundation's passphrase wordlists. For more info visit these articles:
+Frontier Foundation's passphrase word lists. For more info visit these articles:
 https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases
 https://www.eff.org/deeplinks/2018/08/dragon-con-diceware
 
@@ -119,7 +119,7 @@ func main() {
 	var (
 		wordCount     = flag.Int("words", 6, "the number of words to include in each generated passphrase")
 		phraseCount   = flag.Int("phrases", 3, "the number of passphrases to generate")
-		listName      = flag.String("list", "eff", "the wordlist to choose words from")
+		listName      = flag.String("list", "eff", "the word list to choose words from")
 		reportVersion = flag.Bool("version", false, "report version number and exit")
 	)
 	flag.Usage = usage
