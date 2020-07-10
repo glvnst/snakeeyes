@@ -30,6 +30,8 @@ archives:
   files:
     - README.md
     - COPYING
+  replacements:
+    darwin: macOS
 checksum:
   name_template: 'checksums.txt'
 snapshot:
