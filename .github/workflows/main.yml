@@ -9,7 +9,6 @@ on:
 
 jobs:
   goreleaser:
-    needs: tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
