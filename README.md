@@ -1,28 +1,25 @@
-# WIP: snakeeyes
+# snakeeyes
 
-This command-line utility generates random passphrases using the [EFF's passphrase wordlists](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases).
+This command-line utility generates random [diceware](https://en.wikipedia.org/wiki/Diceware)-style passphrases using the [EFF's passphrase word lists](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases), including their [FANDOM Wikia-based word lists](https://www.eff.org/deeplinks/2018/08/dragon-con-diceware). For reference, the EFF provides detailed [instructions for generating passphrases using these word lists](https://www.eff.org/dice) with regular [dice](https://en.wikipedia.org/wiki/Dice). This program replaces the table dice with a [cryptographically secure pseudorandom number generator](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator): the one from your operating system as proxied by [go's crypto/rand package](https://godoc.org/crypto/rand).
 
-* <https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases>
-* <https://www.eff.org/deeplinks/2018/08/dragon-con-diceware>
-* <https://www.eff.org/dice>
-* <https://ssd.eff.org/en/module/animated-overview-how-make-super-secure-password-using-dice>
+This project utilizes the hard work of the team at [EFF](https://www.eff.org/), particularly the work of [Joseph Bonneau](https://www.eff.org/about/staff/joseph-bonneau). **This project is NOT affiliated with the EFF** but you should [donate to EFF](https://www.eff.org/donate/) because their work is essential.
 
-Be aware that using software to generate passphrases may be less secure against some forms of attack than using fair dice and paper wordlists so if you see your IT department playing with dice you should buy them lunch.
+**This program comes with ABSOLUTELY NO WARRANTY; it is distributed under the terms of the GNU Affero General Public License 3.0. See the `COPYING` file or visit the following URL for the complete license terms:** <https://www.gnu.org/licenses/agpl-3.0.html/>. Be aware that using a software passphrase generator is less secure against advanced attacks than using fair dice and paper word lists, _so if you see your IT department playing with dice you should buy them lunch because they're going the extra mile_.
 
-## Notes / Todo / Status / Turtles
 
-* Currently compiles / runs using the <https://godoc.org/crypto/rand> CS-PRNG.
-* I need to improve the tests.
-* It would be nice to be able to print entropy information about the lists as loaded but I haven't really looked into those calculations.
-* It would also be nice to be able to specify a target total character length for passphrases but I think I need to research the safest way to accomplish that.
-* Experimenting with go generate <https://blog.golang.org/generate> for loading the word lists. This seems like a fine guide on that subject <https://blog.carlmjohnson.net/post/2016-11-27-how-to-use-go-generate/>
-* Enable some kind of auto update mechanism
+## Notes / Todo / Status
+
+* I want to improve the automated tests.
+* It would be nice to have an option to print entropy information about the lists used and passwords generated but I haven't really looked into those calculations and could use some help.
+* Because password prompts sometimes have silly length limits, it would also be nice to be able to specify a target total character length for the generated passphrases. I think I need to research the safest way to accomplish that without firing any crypto footguns.
+* I'm using [`go generate`](https://blog.golang.org/generate) (to `go`-ify the word lists) and I used this [nice intro](https://blog.carlmjohnson.net/post/2016-11-27-how-to-use-go-generate/). Eventually I want to rewrite the word list fetching and preprocessing in go (it is currently based on Make, curl, posix shell utilities, and perl).
+* I want to enable some kind of auto update mechanism
 	* Using [The Update Framework](https://theupdateframework.com/) seems like a good idea
 		* [flynn's go-tuf](https://github.com/flynn/go-tuf) and [kolide's updater](https://github.com/kolide/updater) are golang implementations
 		* I have [some](https://github.com/theupdateframework/notary/issues/1566) [concerns](https://github.com/theupdateframework/notary/issues/1564) about the status of the TUF project / notary
 		* I'm not sure if I have to run my own notary instance or if I can use a public one hosted somewhere -- need to look into it
-	* Restic rolled their own update system based on github API calls <https://github.com/restic/restic/tree/master/internal/selfupdate>.
-* Document the exact commands for verifying that a binary matches a given commit to this repo. Good starting place: <https://blog.filippo.io/reproducing-go-binaries-byte-by-byte/>
+	* Restic rolled their own [update system based on github API calls](https://github.com/restic/restic/tree/master/internal/selfupdate)
+* I want to document the exact commands for verifying that a snakeeyes binary matches a given commit in the repo. Good starting place: <https://blog.filippo.io/reproducing-go-binaries-byte-by-byte/>
 
 ## Example
 
@@ -44,7 +41,6 @@ donor emu date cried cheer thong gem cash
 trick graph cane stage fable array mocha blush
 ```
 
-
 ## Help Text
 
 Invoking snakeeyes with the `-h` or `--help` arguments will produce the following output:
@@ -53,7 +49,7 @@ Invoking snakeeyes with the `-h` or `--help` arguments will produce the followin
 usage: snakeeyes [ [-h|--help] | [-version] | [-words n] [-phrases n] [-list {eff,memorable,touchscreen,got,potter,trek,wars}] ]
 
 This command-line utility generates random passphrases using the Electronic
-Frontier Foundation's passphrase wordlists. For more info visit these articles:
+Frontier Foundation's passphrase word lists. For more info visit these articles:
 https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases
 https://www.eff.org/deeplinks/2018/08/dragon-con-diceware
 
@@ -100,7 +96,7 @@ list."
 Command line options:
 
   -list string
-    	the wordlist to choose words from (default "eff")
+    	the word list to choose words from (default "eff")
   -phrases int
     	the number of passphrases to generate (default 3)
   -version
