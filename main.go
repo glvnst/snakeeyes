@@ -119,6 +119,7 @@ func main() {
 	var (
 		wordCount     = flag.Int("words", 6, "the number of words to include in each generated passphrase")
 		phraseCount   = flag.Int("phrases", 3, "the number of passphrases to generate")
+		delimiter     = flag.String("delimiter", " ", "the delimiter between words in a passphrase")
 		listName      = flag.String("list", "eff", "the word list to choose words from")
 		reportVersion = flag.Bool("version", false, "report version number and exit")
 	)
@@ -136,6 +137,6 @@ func main() {
 	}
 
 	for p := 0; p < *phraseCount; p++ {
-		fmt.Println(GenPassphrase(wordList, *wordCount, " "))
+		fmt.Println(GenPassphrase(wordList, *wordCount, *delimiter))
 	}
 }

@@ -12,7 +12,6 @@ lint: *.go
 	@echo '==> Linting'
 	go fmt
 	go vet
-	golint
 	staticcheck
 
 build/%: *.go

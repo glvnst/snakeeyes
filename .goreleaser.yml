@@ -2,36 +2,39 @@ before:
   hooks:
     - go mod tidy
 builds:
-- env:
-  - CGO_ENABLED=0
-  goos:
-    - darwin
-    - linux
-    - windows
-    - dragonfly
-    - freebsd
-    - netbsd
-    - openbsd
-  goarch:
-    - amd64
-    - arm
-    - arm64
-  goarm:
-    - 7
-  ignore:
-    - goos: darwin
-      goarch: 386
-    - goos: freebsd
-      goarch: arm64
+  - id: cli
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+      - dragonfly
+      - freebsd
+      - netbsd
+      - openbsd
+    goarch:
+      - amd64
+      - arm
+      - arm64
+    goarm:
+      - "7"
+    ignore:
+      - Goos: freebsd
+        Goarch: arm64
+universal_binaries:
+  - id: cli
+    replace: false
 archives:
-- format_overrides:
-    - goos: windows
-      format: zip
-  files:
-    - README.md
-    - COPYING
-  replacements:
-    darwin: macOS
+  - id: cli
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - README.md
+      - COPYING
+    replacements:
+      darwin: macOS
 checksum:
   name_template: 'checksums.txt'
 snapshot:
