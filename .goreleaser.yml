@@ -20,8 +20,8 @@ builds:
     goarm:
       - "7"
     ignore:
-      - Goos: freebsd
-        Goarch: arm64
+      - goos: freebsd
+        goarch: arm64
 universal_binaries:
   - id: cli
     replace: false
