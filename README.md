@@ -35,10 +35,10 @@ try qualify twig stubbly darwinism elevation
 You can specify that you want words from a different word list, such as EFF's first short list. In this example we're also specifying that we want 8 words per passphrase:
 
 ```
-$ snakeeyes -list memorable -words 8
-bribe fiber doll slum keg stump dense fruit
-donor emu date cried cheer thong gem cash
-trick graph cane stage fable array mocha blush
+$ snakeeyes -list memorable -words 8 -delimiter -
+rigor-stash-twins-elf-shun-sax-ahead-tidal
+shape-yelp-barge-juicy-rant-stop-shush-fax
+punch-dwarf-mummy-mace-stem-uncle-yoyo-boney
 ```
 
 ## Help Text
@@ -95,6 +95,8 @@ list."
 
 Command line options:
 
+  -delimiter string
+    	the delimiter between words in a passphrase (default " ")
   -list string
     	the word list to choose words from (default "eff")
   -phrases int
