@@ -1,4 +1,4 @@
-TARGETS=eff.txt effshort1.txt effshort2.txt got.txt potter.txt startrek.txt starwars.txt 
+TARGETS=eff.txt effshort1.txt effshort2.txt got.txt potter.txt startrek.txt starwars.txt
 DOWNLOADS=eff_large_wordlist.txt eff_short_wordlist_1.txt eff_short_wordlist_2_0.txt gameofthrones_8k-2018.txt harrypotter_8k_3column-txt.txt memory-alpha_8k_2018.txt starwars_8k_2018.txt
 
 CURL=curl -sSLO
