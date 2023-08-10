@@ -1,4 +1,4 @@
-PLATFORMS := darwin-amd64 linux-amd64 linux-arm
+PLATFORMS := darwin-amd64 darwin-arm64 linux-amd64 linux-arm
 TARGETS := $(PLATFORMS:%=build/%/snakeeyes)
 .PHONY: build clean lint
 
