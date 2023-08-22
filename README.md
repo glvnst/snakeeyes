@@ -9,6 +9,7 @@ This project utilizes the hard work of the team at [EFF](https://www.eff.org/), 
 
 ## Notes / Todo / Status
 
+* See the [analysis of the modified word lists](wordlists/analysis/analysis.md)
 * I want to improve the automated tests.
 * It would be nice to have an option to print entropy information about the lists used and passwords generated but I haven't really looked into those calculations and could use some help.
 * Because password prompts sometimes have silly length limits, it would also be nice to be able to specify a target total character length for the generated passphrases. I think I need to research the safest way to accomplish that without firing any crypto footguns.
