@@ -1,0 +1,107 @@
+[
+  {
+    "stats": {
+      "List Name": "eff.txt",
+      "Word Count": 7776,
+      "Unique Word Count": 7776,
+      "Min word length": 3,
+      "Max word length": 9,
+      "Mean word length": 6.991769547325103,
+      "Median word length": 7.0,
+      "Word length standard deviation": 1.546828747220911,
+      "First quartile of word length": 6.0,
+      "Third quartile of word length": 8.0
+    },
+    "plot_file": "histogram_word_lengths_eff.png"
+  },
+  {
+    "stats": {
+      "List Name": "effshort1.txt",
+      "Word Count": 1296,
+      "Unique Word Count": 1296,
+      "Min word length": 3,
+      "Max word length": 5,
+      "Mean word length": 4.540123456790123,
+      "Median word length": 5.0,
+      "Word length standard deviation": 0.6123179877251316,
+      "First quartile of word length": 4.0,
+      "Third quartile of word length": 5.0
+    },
+    "plot_file": "histogram_word_lengths_effshort1.png"
+  },
+  {
+    "stats": {
+      "List Name": "effshort2.txt",
+      "Word Count": 1296,
+      "Unique Word Count": 1296,
+      "Min word length": 3,
+      "Max word length": 10,
+      "Mean word length": 7.316358024691358,
+      "Median word length": 7.0,
+      "Word length standard deviation": 1.6377805126514327,
+      "First quartile of word length": 6.0,
+      "Third quartile of word length": 9.0
+    },
+    "plot_file": "histogram_word_lengths_effshort2.png"
+  },
+  {
+    "stats": {
+      "List Name": "got.txt",
+      "Word Count": 3996,
+      "Unique Word Count": 3996,
+      "Min word length": 3,
+      "Max word length": 20,
+      "Mean word length": 6.900900900900901,
+      "Median word length": 7.0,
+      "Word length standard deviation": 2.3113917281391525,
+      "First quartile of word length": 5.0,
+      "Third quartile of word length": 8.0
+    },
+    "plot_file": "histogram_word_lengths_got.png"
+  },
+  {
+    "stats": {
+      "List Name": "potter.txt",
+      "Word Count": 3998,
+      "Unique Word Count": 3998,
+      "Min word length": 3,
+      "Max word length": 20,
+      "Mean word length": 7.017008504252126,
+      "Median word length": 7.0,
+      "Word length standard deviation": 2.336437528715568,
+      "First quartile of word length": 5.0,
+      "Third quartile of word length": 8.0
+    },
+    "plot_file": "histogram_word_lengths_potter.png"
+  },
+  {
+    "stats": {
+      "List Name": "startrek.txt",
+      "Word Count": 3998,
+      "Unique Word Count": 3998,
+      "Min word length": 3,
+      "Max word length": 20,
+      "Mean word length": 7.151825912956478,
+      "Median word length": 7.0,
+      "Word length standard deviation": 2.41984260579635,
+      "First quartile of word length": 5.0,
+      "Third quartile of word length": 9.0
+    },
+    "plot_file": "histogram_word_lengths_startrek.png"
+  },
+  {
+    "stats": {
+      "List Name": "starwars.txt",
+      "Word Count": 3993,
+      "Unique Word Count": 3993,
+      "Min word length": 3,
+      "Max word length": 16,
+      "Mean word length": 6.923866766841973,
+      "Median word length": 7.0,
+      "Word length standard deviation": 2.280859033491251,
+      "First quartile of word length": 5.0,
+      "Third quartile of word length": 8.0
+    },
+    "plot_file": "histogram_word_lengths_starwars.png"
+  }
+]
