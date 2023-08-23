@@ -28,18 +28,18 @@ When invoked without arguments, snakeeyes prints three passphrases consisting of
 
 ```
 $ snakeeyes
-jailbreak stump omega giveaway consoling reclaim
-exploring sweep actress unfrozen vertebrae chain
-try qualify twig stubbly darwinism elevation
+shower-hypnosis-stability-quit-rabid-stumbling
+footwear-cubical-monotype-cognition-garage-pentagon
+sleek-iodine-reaction-faction-confirm-handsaw
 ```
 
 You can specify that you want words from a different word list, such as EFF's first short list. In this example we're also specifying that we want 8 words per passphrase:
 
 ```
-$ snakeeyes -list memorable -words 8 -delimiter -
-rigor-stash-twins-elf-shun-sax-ahead-tidal
-shape-yelp-barge-juicy-rant-stop-shush-fax
-punch-dwarf-mummy-mace-stem-uncle-yoyo-boney
+$ snakeeyes --list memorable --words 8 --delimiter ' '
+punk dean snout level donor work dude grab
+spoon class penny mardi wink math rant chuck
+hurt squad dice tank point recap chew broad
 ```
 
 ## Help Text
@@ -47,63 +47,61 @@ punch-dwarf-mummy-mace-stem-uncle-yoyo-boney
 Invoking snakeeyes with the `-h` or `--help` arguments will produce the following output:
 
 ```
-usage: snakeeyes [ [-h|--help] | [-version] | [-words n] [-phrases n] [-list {eff,memorable,touchscreen,got,potter,trek,wars}] ]
+NAME:
+   snakeeyes - command-line diceware-style passphrase generator
 
-This command-line utility generates random passphrases using the Electronic
-Frontier Foundation's passphrase word lists. For more info visit these articles:
-https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases
-https://www.eff.org/deeplinks/2018/08/dragon-con-diceware
+USAGE:
 
-This software project is NOT affiliated with EFF, but if you find this utility
-useful, please donate to EFF at:
-https://www.eff.org/donate/
+   This command-line utility generates random passphrases using the Electronic
+   Frontier Foundation's passphrase word lists. For more info visit these articles:
+   https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases
+   https://www.eff.org/deeplinks/2018/08/dragon-con-diceware
 
-If you find bugs or would like to get or contribute to the source code of this
-software project, please visit:
-https://github.com/glvnst/snakeeyes
+   This software project is NOT affiliated with EFF, but if you find this utility
+   useful, please donate to EFF at:
+   https://www.eff.org/donate/
 
-This program comes with ABSOLUTELY NO WARRANTY; it is distributed under the
-terms of the GNU Affero General Public License 3.0. Visit the following URL for
-more information:
-https://www.gnu.org/licenses/agpl-3.0.html/
+   If you find bugs or would like to get or contribute to the source code of this
+   software project, please visit:
+   https://github.com/glvnst/snakeeyes
 
-Available Word Lists:
+   This program comes with ABSOLUTELY NO WARRANTY; it is distributed under the
+   terms of the GNU Affero General Public License 3.0. Visit the following URL for
+   more information:
+   https://www.gnu.org/licenses/agpl-3.0.html/
 
-eff         - 7,776 words, like Arnold Reinhold's Diceware, but tweaked by EFF
-memorable   - 1,296 words, the most memorable and distinct words per EFF
-touchscreen - 1,296 words, EFF experiment optimized for typing on software keyboards
-got         - 3,996 words, forked from EFF, contains hyphenated words, inspired by Game of Thrones
-potter      - 3,998 words, forked from EFF, contains hyphenated words, inspired by Harry Potter
-trek        - 3,998 words, forked from EFF, contains hyphenated words, inspired by Star Trek
-wars        - 3,993 words, forked from EFF, contains hyphenated words, inspired by Star Wars
+   Available Word Lists:
+   eff         - 7,776 words, like Arnold Reinhold's Diceware, but tweaked by EFF
+   memorable   - 1,296 words, the most memorable and distinct words per EFF
+   touchscreen - 1,296 words, EFF experiment optimized for typing on software keyboards
+   got         - 3,996 words, inspired by Game of Thrones
+   potter      - 3,998 words, inspired by Harry Potter
+   trek        - 3,998 words, inspired by Star Trek
+   wars        - 3,993 words, inspired by Star Wars
 
-The designation "forked from EFF" indicates that a list started with one of EFF's
-FANDOM Wikia-based lists and had additional filtering applied to remove words
-which contain non-ASCII characters, such as the word "café". Entering these words
-into password prompts has proven difficult to do reliably in several cases. This
-filtering reduces the quality of the list somewhat.
+   NOTE: The "inspired by" lists above are forked from EFF's FANDOM Wikia-based
+   lists and have additional filtering applied. This filtering removed words which
+   contain non-ASCII characters, such as the word "café", because entering these
+   words into password prompts is sometimes difficult. Unfortunately this
+   filtering reduces the strength of the lists somewhat. Note also that these
+   particular lists contain hyphenated words.
 
-If you choose from shorter lists, you need to include more words in your
-passphrase to achieve the same levels of entropy. From the first EFF link
-above:
+   If you choose from shorter lists, you need to include more words in your
+   passphrase to achieve the same levels of entropy. See the first EFF link
+   above for more information.
 
-"Passphrases generated using the shorter lists will be weaker than the long
-list on a per-word basis (10.3 bits/word).  Put another way, this means you
-would need to choose more words from the short list, to get comparable security
-to the long list—for example, using eight words from the short will provide a
-strength of about 82 bits, slightly stronger than six words from the long
-list."
 
-Command line options:
+VERSION:
+   DEV (No build date recorded. / No commit ID recorded.)
 
-  -delimiter string
-    	the delimiter between words in a passphrase (default " ")
-  -list string
-    	the word list to choose words from (default "eff")
-  -phrases int
-    	the number of passphrases to generate (default 3)
-  -version
-    	report version number and exit
-  -words int
-    	the number of words to include in each generated passphrase (default 6)
+COMMANDS:
+   help, h  Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --words value      number of words to include in each generated passphrase (default: 6)
+   --phrases value    number of passphrases to generate (default: 3)
+   --delimiter value  delimiter between words in a passphrase (default: "-")
+   --list value       word list to use; one of: eff, memorable, touchscreen, got, potter, trek, wars (default: "eff")
+   --help, -h         show help
+   --version, -v      print the version
 ```
