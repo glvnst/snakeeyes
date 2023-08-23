@@ -7,6 +7,7 @@ build: lint $(TARGETS)
 clean:
 	@echo '==> Cleaning'
 	rm -rf -- build
+	rm -f snakeeyes
 
 lint: *.go
 	@echo '==> Linting'

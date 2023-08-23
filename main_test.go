@@ -75,3 +75,97 @@ func TestGenPassphrase(t *testing.T) {
 		}
 	}
 }
+
+func TestFilterWordList(t *testing.T) {
+	tests := []struct {
+		wordList         []string
+		maxPassphraseLen int
+		expected         int
+	}{
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 60,
+			expected:         6001,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 45,
+			expected:         4501,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 30,
+			expected:         3001,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 20,
+			expected:         2001,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 10,
+			expected:         1001,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 9,
+			expected:         901,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 8,
+			expected:         801,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 7,
+			expected:         701,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 6,
+			expected:         601,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 5,
+			expected:         501,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 4,
+			expected:         401,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 3,
+			expected:         301,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 2,
+			expected:         101,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 1,
+			expected:         101,
+		},
+		{
+			wordList:         WordLists["eff"],
+			maxPassphraseLen: 0,
+			expected:         0,
+		},
+	}
+
+	for i, test := range tests {
+		actual := len(FilterWordList(test.wordList, test.maxPassphraseLen))
+		if actual != test.expected {
+			t.Errorf("Test case %d: expected %d, but got %d", i, test.expected, actual)
+
+		}
+		// if !reflect.DeepEqual(actual, test.expected) {
+		// }
+	}
+}

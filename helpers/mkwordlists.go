@@ -65,7 +65,17 @@ func main() {
 
 	f.WriteString(outputHeader)
 	f.WriteString("var WordLists map[string][]string = map[string][]string{\n")
-	for name, path := range sources {
+
+	// a mistake when I first committed wordlists.go resulted in unsorted keys;
+	// if you ever change wordlists, get rid of this and use the 2 better lines
+	// below
+	source_names := []string{"touchscreen", "got", "potter", "trek", "wars", "eff", "memorable"}
+	// source_names := maps.Keys(sources)
+	// slices.Sort(source_names)
+
+	for _, name := range source_names {
+		path := sources[name]
+
 		log.Printf("Loading %s", name)
 		words := loadWordlist(path)
 		f.WriteString(fmt.Sprintf("	\"%s\": {\n", name))
