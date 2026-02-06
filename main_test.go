@@ -58,7 +58,7 @@ func TestGenPassphrase(t *testing.T) {
 		// these phrase lengths should all be 39-59 characters
 		// (wordlen * 10 words) + 9 inter-word spaces
 		// wordlen is between 3 and 5, as in len("one") and len("three")
-		if !(phraseLen > 38 && phraseLen < 60) {
+		if phraseLen < 39 || phraseLen > 59 {
 			t.Errorf("expected test passphrase \"%s\" length 31-47 chars, got: %d chars", phrase, phraseLen)
 		}
 
