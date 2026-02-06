@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -21,23 +21,23 @@ repos:
           - main
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.6.25
+    rev: v1.7.10
     hooks:
       - id: actionlint
         name: check github workflows with actionlint
 
   - repo: https://github.com/koalaman/shellcheck-precommit
-    rev: v0.9.0
+    rev: v0.11.0
     hooks:
       - id: shellcheck
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-    rev: v1.3.2
+    rev: v1.4.2
     hooks:
       - id: python-safety-dependencies-check
         files: "requirements.txt"
 
   - repo: https://github.com/golangci/golangci-lint
-    rev: v1.54.0
+    rev: v2.8.0
     hooks:
       - id: golangci-lint

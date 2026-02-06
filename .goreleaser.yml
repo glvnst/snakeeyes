@@ -1,3 +1,4 @@
+version: 2
 before:
   hooks:
     - go mod tidy
@@ -22,6 +23,8 @@ builds:
     ignore:
       - goos: freebsd
         goarch: arm64
+      - goos: windows
+        goarch: arm
 universal_binaries:
   - id: cli
     replace: false
@@ -29,7 +32,7 @@ archives:
   - id: cli
     format_overrides:
       - goos: windows
-        format: zip
+        formats: ["zip"]
     files:
       - README.md
       - COPYING
@@ -44,11 +47,9 @@ archives:
       {{- .Arch -}}
 checksum:
   name_template: checksums.txt
-snapshot:
-  name_template: '{{ .Env.VERSION }}'
 changelog:
   sort: asc
   filters:
     exclude:
-      - '^docs:'
-      - '^test:'
+      - "^docs:"
+      - "^test:"
