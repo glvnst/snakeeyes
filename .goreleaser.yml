@@ -47,8 +47,6 @@ archives:
       {{- .Arch -}}
 checksum:
   name_template: checksums.txt
-snapshot:
-  version_template: "{{ .Env.VERSION }}"
 changelog:
   sort: asc
   filters:
